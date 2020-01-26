@@ -3,11 +3,14 @@ require 'player'
 describe Player do
   DEFAULT_HIT_POINTS = 100
 
-  subject(:player) { described_class.new }
-
   describe '#initialize' do
     it 'should have default hit points' do
-      expect(player.hit_points).to eq(DEFAULT_HIT_POINTS)
+      test_player = Player.new("Kitty")
+      expect(test_player.hit_points).to eq(DEFAULT_HIT_POINTS)
+    end
+    it 'should set the name of the player at creation' do
+      test_player = Player.new("Kitty")
+      expect(test_player.name).to eq("Kitty")
     end
   end
 end
