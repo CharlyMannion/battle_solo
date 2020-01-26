@@ -24,5 +24,11 @@ class Battle < Sinatra::Base
     erb :confirmed_players
   end
 
+  get '/attack' do
+    @player_1 = $player_1.name
+    @player_2 = $player_2.name
+    erb :attack
+  end
+
   run! if app_file == $0
 end
