@@ -4,13 +4,7 @@ feature 'Entering Players' do
     expect(page).to have_content 'Enter Player Names!'
   end
   before do
-    # visit '/sessions/new'
-    # within("#session") do
-    visit('/name_form')
-    fill_in 'player_1', with: 'Charly'
-    fill_in 'player_2', with: 'Kitty'
-    # end
-    click_button 'Submit'
+    sign_in_and_play
   end
   scenario 'entering player names' do
     expect(page).to have_content 'Charly v. Kitty'
