@@ -14,10 +14,10 @@ describe Game do
   end
 
   describe '#player_1' do
-    # it 'creates a player object within game, for player 1' do
-    #   game.set_player_1(player_kitty)
-    #   expect(game.player_1).to be_a(Player)
-    # end
+    it 'creates a player object within game' do
+      game.set_player_1(player_kitty)
+      expect(game.player_1).to eq(player_kitty)
+    end
   end
 
   describe '#player_2' do
@@ -25,9 +25,5 @@ describe Game do
       game.set_player_2(player_jim)
       expect(game.player_2).to eq(player_jim)
     end
-    # it 'creates a player object within game' do
-    #   game.set_player_2(player_jim)
-    #   expect(game.player_2).to be_a(Player)
-    # end
   end
 end
