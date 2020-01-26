@@ -13,11 +13,11 @@ class Game
   end
 
   def set_player_1(player)
-    @player_1 = @player_class.new(player_1)
+    @player_1 = player
   end
 
   def set_player_2(player_two)
-    @player_2 = @player_class.new(player_two)
+    @player_2 = player_two
   end
 
 end
