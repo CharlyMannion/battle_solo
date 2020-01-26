@@ -1,4 +1,4 @@
-require 'player'
+require './lib/player'
 require 'sinatra/base'
 
 class Battle < Sinatra::Base
@@ -11,15 +11,15 @@ class Battle < Sinatra::Base
 
   post '/named_players' do
     p params
-    session[:player_1] = params[:player_1]
-    session[:player_2] = params[:player_2]
+    $player_1 = Player.new(params[:player_1])
+    $player_2 = Player.new(params[:player_2])
     redirect '/named_players'
   end
 
   get '/named_players' do
     p session
-    @player_1 = session[:player_1]
-    @player_2 = session[:player_2]
+    @player_1 = $player_1.name
+    @player_2 = $player_2.name
     erb :confirmed_players
   end
 
