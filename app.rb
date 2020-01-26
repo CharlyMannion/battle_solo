@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class Battle < Sinatra::Base
 
-  get '/' do
+  get '/name_form' do
     'Enter Player Names!'
   end
 
