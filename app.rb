@@ -17,16 +17,19 @@ class Battle < Sinatra::Base
   end
 
   get '/named_players' do
-    p session
-    @player_1 = $player_1.name
-    @player_2 = $player_2.name
+    @player_1_name = $player_1.name
+    @player_2_name = $player_2.name
     @player_2_hp = $player_2.hit_points
     erb :confirmed_players
   end
 
   get '/attack' do
-    @player_1 = $player_1.name
-    @player_2 = $player_2.name
+    @player_1_name = $player_1.name
+    @player_2_name = $player_2.name
+    @player_1 = $player_1
+    @player_2 = $player_2
+    @player_1.attack(@player_2)
+    @player_2_hp = $player_2.hit_points
     erb :attack
   end
 
