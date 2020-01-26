@@ -1,3 +1,4 @@
+require 'player'
 require 'sinatra/base'
 
 class Battle < Sinatra::Base
