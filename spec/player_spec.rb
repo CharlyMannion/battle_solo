@@ -16,13 +16,13 @@ describe Player do
     end
   end
 
-  describe '#attack' do
-    it 'damages the other player\'s HP' do
-      test_player.attack(dave)
-      new_hp = DEFAULT_HIT_POINTS - MAX_HIT
-      expect(dave.hit_points).to eq(new_hp)
-    end
-  end
+  # describe '#attack' do
+  #   it 'damages the other player\'s HP' do
+  #     test_player.attack(dave)
+  #     new_hp = DEFAULT_HIT_POINTS - MAX_HIT
+  #     expect(dave.hit_points).to eq(new_hp)
+  #   end
+  # end
 
   describe '#receive_attack' do
     it 'reduces the player\'s HP' do

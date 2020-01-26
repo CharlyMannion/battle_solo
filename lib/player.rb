@@ -8,9 +8,9 @@ class Player
     @name = name
   end
 
-  def attack(player)
-    player.receive_attack
-  end
+  # def attack(player)
+  #   player.receive_attack
+  # end
 
   def receive_attack
     @hit_points -= MAX_HIT
