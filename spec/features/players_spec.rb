@@ -7,10 +7,10 @@ feature 'Entering Players' do
     # visit '/sessions/new'
     # within("#session") do
     visit('/name_form')
-    fill_in 'Player_1', with: 'Charly'
-    fill_in 'PLayer_2', with: 'Kitty'
+    fill_in 'player_1', with: 'Charly'
+    fill_in 'player_2', with: 'Kitty'
     # end
-    click_button 'Enter'
-    expect(page).to have_content 'Charly vs. Kitty'
+    click_button 'Submit'
+    expect(page).to have_content 'Charly v. Kitty'
   end
 end
