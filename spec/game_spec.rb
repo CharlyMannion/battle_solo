@@ -33,4 +33,10 @@ describe Game do
       expect(finished_game.game_over?).to be true
     end
   end
+
+  describe '#losing_player' do
+    it 'returns the losing player' do
+      expect(finished_game.losing_player).to eq(dead_player)
+    end
+  end
 end
