@@ -21,4 +21,10 @@ describe Game do
       game.attack(player_jim)
     end
   end
+
+  describe '#game_over?' do
+    it 'returns false when no player is a loser' do
+      expect(game.game_over?).to be false
+    end
+  end
 end

@@ -12,4 +12,8 @@ class Game
   def attack(player)
     player.receive_attack
   end
+
+  def game_over?
+    false
+  end
 end
