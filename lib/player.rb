@@ -11,4 +11,8 @@ class Player
   def receive_attack
     @hit_points -= MAX_HIT
   end
+
+  def loser?
+    @hit_points == 0
+  end
 end

@@ -21,4 +21,11 @@ describe Player do
       expect { test_player.receive_attack }.to change { test_player.hit_points }.by(-10)
     end
   end
+
+  describe '#lose' do
+    it 'loses the game when the player\'s hit points are 0' do
+      10.times { test_player.receive_attack }
+      expect(test_player.loser?).to eq(true)
+    end
+  end
 end
