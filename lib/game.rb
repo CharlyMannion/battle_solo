@@ -23,6 +23,10 @@ class Game
   end
 
   def losing_player
-    @player_2
+    if @player_1.loser?
+      @player_1
+    elsif @player_2.loser?
+      @player_2
+    end
   end
 end

@@ -58,6 +58,7 @@ class Battle < Sinatra::Base
 
   get '/game_over' do
     @game = $game
+    @losing_player = @game.losing_player.name
     erb :game_over
   end
 
