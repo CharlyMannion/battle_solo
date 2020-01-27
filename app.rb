@@ -35,5 +35,15 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  get '/second_attack' do
+    @player_1_name = $game.player_1.name
+    @player_2_name = $game.player_2.name
+    @player_1 = $game.player_1
+    @player_2 = $game.player_2
+    $game.attack(@player_1)
+    @player_1_hp = $game.player_1.hit_points
+    erb :second_attack
+  end
+
   run! if app_file == $0
 end
