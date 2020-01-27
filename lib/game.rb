@@ -14,6 +14,10 @@ class Game
   end
 
   def game_over?
-    false
+    if @player_1.loser? == true || @player_2.loser? == true
+      true
+    else
+      false
+    end
   end
 end

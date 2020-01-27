@@ -2,9 +2,12 @@ require 'game'
 require 'player'
 
 describe Game do
-  let(:player_kitty) { double :player }
-  let(:player_jim) { double :player }
+  let(:player_kitty) { double :player, loser?: false }
+  let(:player_jim) { double :player, loser?: false }
   subject(:game) { Game.new(player_kitty, player_jim) }
+  let(:dead_player) { double :player, loser?: true }
+  subject(:finished_game) { Game.new(player_kitty, dead_player) }
+
 
   describe '#initalize' do
     it 'sets player 1' do
@@ -25,6 +28,9 @@ describe Game do
   describe '#game_over?' do
     it 'returns false when no player is a loser' do
       expect(game.game_over?).to be false
+    end
+    it 'returns true when a player is a loser' do
+      expect(finished_game.game_over?).to be true
     end
   end
 end
