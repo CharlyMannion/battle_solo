@@ -15,3 +15,7 @@ def attack_player_two
   click_button 'Submit'
   click_button "Attack"
 end
+
+def attack
+  click_button "Attack"
+end
