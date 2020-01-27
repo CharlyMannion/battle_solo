@@ -34,6 +34,10 @@ class Battle < Sinatra::Base
     $game.attack(@player_2)
     @player_1_hp = $game.player_1.hit_points
     @player_2_hp = $game.player_2.hit_points
+    if $game.game_over?
+      redirect '/game_over'
+    else
+    end
     erb :attack
   end
 
@@ -45,7 +49,16 @@ class Battle < Sinatra::Base
     $game.attack(@player_1)
     @player_1_hp = $game.player_1.hit_points
     @player_2_hp = $game.player_2.hit_points
+    if $game.game_over?
+      redirect '/game_over'
+    else
+    end
     erb :second_attack
+  end
+
+  get '/game_over' do
+    @game = $game
+    erb :game_over
   end
 
   run! if app_file == $0
