@@ -35,9 +35,6 @@ class Battle < Sinatra::Base
     @game = $game
     @game.attack(@game.player_1)
     redirect '/game_over' if @game.game_over?
-    #   redirect '/game_over'
-    # else
-    # end
     erb :second_attack
   end
 
