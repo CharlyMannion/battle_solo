@@ -14,11 +14,13 @@ class Battle < Sinatra::Base
     p params
     player_1 = Player.new(params[:player_1])
     player_2 = Player.new(params[:player_2])
-    @game = Game.create(player_1, player_2)
+    $game = Game.new(player_1, player_2)
+    # @game = Game.create(player_1, player_2)
     redirect '/named_players'
   end
 
   get '/named_players' do
+    @game = $game
     @player_1_name = @game.player_1.name
     @player_2_name = @game.player_2.name
     @player_1_hp = @game.player_1.hit_points
@@ -27,6 +29,7 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
+    @game = $game
     @player_1_name = @game.player_1.name
     @player_2_name = @game.player_2.name
     @player_1 = @game.player_1
@@ -42,6 +45,7 @@ class Battle < Sinatra::Base
   end
 
   get '/second_attack' do
+    @game = $game
     @player_1_name = @game.player_1.name
     @player_2_name = @game.player_2.name
     @player_1 = @game.player_1
@@ -57,6 +61,7 @@ class Battle < Sinatra::Base
   end
 
   get '/game_over' do
+    @game = $game
     @losing_player = @game.losing_player.name
     erb :game_over
   end
