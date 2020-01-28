@@ -21,42 +21,23 @@ class Battle < Sinatra::Base
 
   get '/named_players' do
     @game = $game
-    @player_1_name = @game.player_1.name
-    @player_2_name = @game.player_2.name
-    @player_1_hp = @game.player_1.hit_points
-    @player_2_hp = @game.player_2.hit_points
     erb :confirmed_players
   end
 
   get '/attack' do
     @game = $game
-    @player_1_name = @game.player_1.name
-    @player_2_name = @game.player_2.name
-    @player_1 = @game.player_1
-    @player_2 = @game.player_2
-    @game.attack(@player_2)
-    @player_1_hp = @game.player_1.hit_points
-    @player_2_hp = @game.player_2.hit_points
-    if @game.game_over?
-      redirect '/game_over'
-    else
-    end
+    @game.attack(@game.player_2)
+    redirect '/game_over' if @game.game_over?
     erb :attack
   end
 
   get '/second_attack' do
     @game = $game
-    @player_1_name = @game.player_1.name
-    @player_2_name = @game.player_2.name
-    @player_1 = @game.player_1
-    @player_2 = @game.player_2
-    @game.attack(@player_1)
-    @player_1_hp = @game.player_1.hit_points
-    @player_2_hp = @game.player_2.hit_points
-    if @game.game_over?
-      redirect '/game_over'
-    else
-    end
+    @game.attack(@game.player_1)
+    redirect '/game_over' if @game.game_over?
+    #   redirect '/game_over'
+    # else
+    # end
     erb :second_attack
   end
 
