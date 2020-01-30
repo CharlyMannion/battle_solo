@@ -10,12 +10,10 @@ class Battle < Sinatra::Base
   end
 
   get '/name_form' do
-    'Enter Player Names!'
     erb :name_form
   end
 
   post '/named_players' do
-    p params
     player_1 = Player.new(params[:player_1])
     player_2 = Player.new(params[:player_2])
     @game = Game.create(player_1, player_2)
